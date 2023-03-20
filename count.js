@@ -1,18 +1,15 @@
-const array = [112, 14, 311, 241, 233, 511, 1543, 1115, 4114, 14];
-const text = array.join('').toString();
-let myObj = {};
+function countStringInArray(array) {
+  const text = array.join('').toString();
+  let countObj = {};
+  
+  [...text].forEach((number) => {
+    countObj[number] = [...text].filter(x => x == number).length;
+  })
 
-[...text].forEach((number) => {
-  myObj[number] = [...text].filter(x => x == number).length;
-})
+  return countObj
+}
 
-console.log(myObj);
 /*
-  { 
-    '1': 15, 
-    '2': 3, 
-    '3': 4, 
-    '4': 6, 
-    '5': 3 
-  } 
+const array = [112, 12, 311, 221, 233, 311];
+countStringInArray(array) // { '1': 8, '2': 5, '3': 4 }
 */
